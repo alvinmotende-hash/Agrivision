@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Nurse - AgriVision</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Agri<span>Vision</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="soil.html">Soil Doctor</a></li>
+                    <li><a href="crop.html" class="active">Crop Nurse</a></li>
+                    <li><a href="market.html">Market Connector</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="dashboard-header" style="background: linear-gradient(135deg, #16a085, #2c5e3b);">
+            <h2>🌿 The Crop Nurse Module</h2>
+            <p>On-Device Edge AI powered by an optimized MobileNetV2 CNN framework. Real-time diagnostic solutions in under 3 seconds without active network connectivity.</p>
+        </div>
+
+        <div class="row-layout">
+            <div class="card">
+                <h3>Instant Disease Diagnosis</h3>
+                <div class="offline-badge">⚡ 100% OFFLINE CAPABLE</div>
+                
+                <div class="upload-zone">
+                    <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; color: var(--primary-color);">📸 Drop Smartphone Photograph</p>
+                    <p style="font-size: 0.9rem; color: #7f8c8d;">or click here to trigger native device camera</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <button class="btn" style="padding: 0.75rem 2rem;" onclick="alert('Simulating edge image inference computation locally...');">Simulate On-Device Scan</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Diagnostic Report (Simulation Results)</h3>
+                <div style="background-color: #f9f9f9; padding: 1.2rem; border-radius: 6px; border: 1px dashed #ddd;">
+                    <table style="width:100%; border-collapse: collapse; font-size: 0.95rem;">
+                        <tr>
+                            <td style="padding: 0.5rem 0; font-weight: bold; color: #555;">Detected Pathogen:</td>
+                            <td style="padding: 0.5rem 0; text-align: right; color: #c0392b; font-weight: bold;">Maize Lethal Necrosis Disease (MLND)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.5rem 0; font-weight: bold; color: #555;">Classification Confidence:</td>
+                            <td style="padding: 0.5rem 0; text-align: right; font-weight: bold; color: var(--success-color);">94.2%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.5rem 0; font-weight: bold; color: #555;">Processing Velocity:</td>
+                            <td style="padding: 0.5rem 0; text-align: right; font-style: italic;">2.41 seconds (Edge Run)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4 style="margin-top: 1.5rem; color: var(--primary-color); margin-bottom: 0.5rem;">Immediate Mitigation Standard:</h4>
+                <ul style="padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-color); line-height: 1.7;">
+                    <li>Immediately quarantine infected plants to prevent vectors (thrips/aphids) from spreading the virus.</li>
+                    <li>Implement strict crop rotation patterns for the upcoming consecutive planting seasons.</li>
+                    <li>Report vector concentrations via the community notification matrix.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AgriVision Platform. Semester Project: SDG-Related Problem & Solution.</p>
+    </footer>
+
+</body>
+</html>

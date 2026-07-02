@@ -1,0 +1,281 @@
+/* AgriVision Platform - Modern CSS Stylesheet */
+
+:root {
+    --primary-color: #2c5e3b;      /* Deep Forest Green */
+    --primary-light: #e8f5e9;    /* Light Sage */
+    --accent-color: #e67e22;     /* Earthy Orange */
+    --text-color: #2c3e50;       /* Dark Slate Text */
+    --bg-light: #f9fbf9;         /* Very Light Off-White/Green tint */
+    --border-color: #dadada;
+    --success-color: #27ae60;
+    --warning-color: #f1c40f;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.logo span {
+    color: #a3e2a4;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: #e0f2f1;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+}
+
+nav a:hover, nav a.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Container */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Hero Section / Dashboard Header */
+.dashboard-header {
+    margin-bottom: 2.5rem;
+    background: linear-gradient(135deg, #2c5e3b, #1b3d24);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+}
+
+.dashboard-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+    color: #c8e6c9;
+    font-size: 1.1rem;
+    max-width: 800px;
+}
+
+/* Grid Layouts */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Responsive Columns */
+.row-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.75rem;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 1.5rem;
+    border: 1px solid #edf2ed;
+    flex: 1;
+    min-width: 280px;
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: 0.5rem;
+}
+
+/* Metric Badges */
+.metric-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.metric-box {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--primary-light);
+    border-radius: 6px;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* SDG Section */
+.sdg-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.sdg-badge {
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.sdg-2 { background-color: #dda83a; }
+.sdg-8 { background-color: #a21c26; }
+.sdg-12 { background-color: #bf8d2c; }
+.sdg-13 { background-color: #407f46; }
+
+/* Forms & UI Elements */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #1b3d24;
+}
+
+.btn-accent {
+    background-color: var(--accent-color);
+}
+
+.btn-accent:hover {
+    background-color: #d35400;
+}
+
+/* Sensor/Data Tables */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.data-table th, .data-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.data-table th {
+    background-color: #f1f8f1;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.status-good { background-color: var(--success-color); }
+.status-warning { background-color: var(--warning-color); }
+
+/* Crop Nurse styles */
+.upload-zone {
+    border: 2px dashed #b2dfdb;
+    background-color: #f2faf8;
+    border-radius: 8px;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+}
+
+.upload-zone:hover {
+    border-color: var(--primary-color);
+}
+
+.offline-badge {
+    background-color: #78909c;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: #bdc3c7;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+}

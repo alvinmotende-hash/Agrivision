@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Connector - AgriVision</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Agri<span>Vision</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="soil.html">Soil Doctor</a></li>
+                    <li><a href="crop.html">Crop Nurse</a></li>
+                    <li><a href="market.html" class="active">Market Connector</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="dashboard-header" style="background: linear-gradient(135deg, #d35400, #2c5e3b);">
+            <h2>🤝 Market Connector Engine</h2>
+            <p>Combating information asymmetry via pre-harvest verification metrics, geoproximity multi-tenant freight routing, and seamless escrow integration.</p>
+        </div>
+
+        <div class="row-layout">
+            <div class="card" style="flex: 2; min-width: 320px;">
+                <h3>Active Pre-Harvest Crop Postings</h3>
+                <p style="font-size: 0.85rem; color: #7f8c8d; margin-bottom: 1rem;">Verified quality scores mapped autonomously via historical Soil Doctor datasets.</p>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Produce Category</th>
+                            <th>Volume</th>
+                            <th>Quality Score</th>
+                            <th>Geoproximity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>White Maize</strong></td>
+                            <td>2.5 Metric Tons</td>
+                            <td style="color: var(--success-color); font-weight: bold;">Grade A9 (96/100)</td>
+                            <td>4.2 km away</td>
+                            <td><button class="btn" style="padding: 0.3rem 0.7rem; font-size: 0.8rem;">Secure Batch</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bulb Onions</strong></td>
+                            <td>800 Kilograms</td>
+                            <td style="color: var(--success-color); font-weight: bold;">Grade A8 (89/100)</td>
+                            <td>11.0 km away</td>
+                            <td><button class="btn" style="padding: 0.3rem 0.7rem; font-size: 0.8rem;">Secure Batch</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Irish Potatoes</strong></td>
+                            <td>1.8 Metric Tons</td>
+                            <td style="color: var(--warning-color); font-weight: bold;">Grade B2 (74/100)</td>
+                            <td>14.5 km away</td>
+                            <td><button class="btn" style="padding: 0.3rem 0.7rem; font-size: 0.8rem;">Secure Batch</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="margin-top: 2rem;">Geoproximity Shared Transport Logistics</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 1rem; margin-top: 0.5rem;">The optimization algorithm has identified 3 neighboring farms ready to harvest within a 5km radius. Consolidating transport reduces transit overhead expenses by up to <strong>42%</strong>.</p>
+                <div style="background-color: #f1f8f1; padding: 1rem; border-radius: 6px; font-weight: 500; font-size: 0.9rem; color: var(--primary-color);">
+                    🚛 Consolidated Route Route-KE-992: Dispatch scheduled for Monday at 06:00 AM.
+                </div>
+            </div>
+
+            <div class="card" style="flex: 1; min-width: 260px;">
+                <h3>M-Pesa Escrow Checkout</h3>
+                <p style="font-size: 0.85rem; margin-bottom: 1.2rem; color:#666;">Funds are held securely by the AgriVision platform escrow contract and released upon digital token validation during physical handoff.</p>
+                
+                <form onsubmit="event.preventDefault(); alert('M-Pesa STK Push Initialized to handset details successfully.');" style="font-size: 0.9rem;">
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display:block; font-weight: bold; margin-bottom: 0.3rem;">Selected Transaction Value</label>
+                        <input type="text" value="KES 48,500" disabled style="width:100%; padding: 0.5rem; border: 1px solid #ccc; background:#eee; border-radius:4px;">
+                    </div>
+                    <div style="margin-bottom: 1.2rem;">
+                        <label style="display:block; font-weight: bold; margin-bottom: 0.3rem;">Farmer/Buyer M-Pesa Number</label>
+                        <input type="text" placeholder="e.g. 0712345678" required style="width:100%; padding: 0.5rem; border: 1px solid #ccc; border-radius:4px;">
+                    </div>
+                    <button type="submit" class="btn btn-accent" style="width: 100%; padding: 0.7rem;">Trigger M-Pesa STK Push</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AgriVision Platform. Semester Project: SDG-Related Problem & Solution.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Doctor - AgriVision</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Agri<span>Vision</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="soil.html" class="active">Soil Doctor</a></li>
+                    <li><a href="crop.html">Crop Nurse</a></li>
+                    <li><a href="market.html">Market Connector</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="dashboard-header" style="background: linear-gradient(135deg, #1e4620, #2c5e3b);">
+            <h2>🩺 The Soil Doctor Module</h2>
+            <p>Real-time IoT sensor network delivering automated precision irrigation and fertilization updates every 15 minutes.</p>
+        </div>
+
+        <div class="row-layout">
+            <div class="card" style="flex: 2; min-width: 320px;">
+                <h3>Live Telemetry Feed (Node #KE-401)</h3>
+                <p style="font-size: 0.85rem; color: #7f8c8d; margin-bottom: 1rem;">Last updated: Just now (15-minute scheduled interval)</p>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Current Value</th>
+                            <th>Optimal Range</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Soil Moisture</strong></td>
+                            <td>42%</td>
+                            <td>40% - 60%</td>
+                            <td><span class="status-indicator status-good"></span> Normal</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Soil pH</strong></td>
+                            <td>6.4 pH</td>
+                            <td>6.0 - 7.0 pH</td>
+                            <td><span class="status-indicator status-good"></span> Optimal</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Temperature</strong></td>
+                            <td>24.5°C</td>
+                            <td>20°C - 28°C</td>
+                            <td><span class="status-indicator status-good"></span> Stable</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nitrogen (N)</strong></td>
+                            <td>28 mg/kg</td>
+                            <td>30 - 50 mg/kg</td>
+                            <td><span class="status-indicator status-warning"></span> Low</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phosphorus (P)</strong></td>
+                            <td>14 mg/kg</td>
+                            <td>15 - 30 mg/kg</td>
+                            <td><span class="status-indicator status-warning"></span> Low</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Potassium (K)</strong></td>
+                            <td>185 mg/kg</td>
+                            <td>150 - 250 mg/kg</td>
+                            <td><span class="status-indicator status-good"></span> Optimal</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 0.1rem;">
+                <div class="card">
+                    <h3>Precision Agriculture Alerts</h3>
+                    <div style="background-color: #fffde7; padding: 1rem; border-left: 4px solid var(--warning-color); border-radius: 4px; margin-bottom: 1rem;">
+                        <h4 style="color: #bc9b00; margin-bottom: 0.3rem;">⚠️ Fertilization Alert</h4>
+                        <p style="font-size: 0.9rem;">NPK analysis shows a localized deficit in Nitrogen and Phosphorus. Top-dressing recommendation generated.</p>
+                    </div>
+                    <div style="background-color: #e8f5e9; padding: 1rem; border-left: 4px solid var(--success-color); border-radius: 4px;">
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.3rem;">✅ Irrigation Auto-Skip</h4>
+                        <p style="font-size: 0.9rem;">Soil moisture level is sustained at 42% due to morning conditions. Scheduled valve opening postponed to prevent waterlogging.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Actionable Insights</h3>
+                    <p style="font-size: 0.95rem; margin-bottom: 1rem;">Based on current NPK deficiencies, the system recommends applying an NPK 23:23:0 blend or organic compost within the next 48 hours.</p>
+                    <button class="btn btn-accent" style="width: 100%;">Push Recommendations via SMS/USSD</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AgriVision Platform. Semester Project: SDG-Related Problem & Solution.</p>
+    </footer>
+
+</body>
+</html>
