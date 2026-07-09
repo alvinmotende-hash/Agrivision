@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgriVision - Integrated Smart Farming & Market Intelligence</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
@@ -15,10 +15,10 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">Dashboard</a></li>
-                    <li><a href="soil.html">Soil Doctor</a></li>
-                    <li><a href="crop.html">Crop Nurse</a></li>
-                    <li><a href="market.html">Market Connector</a></li>
+                    <li><a href="{{ url_for('dashboard') }}" class="active">Dashboard</a></li>
+                    <li><a href="{{ url_for('soil_doctor') }}">Soil Doctor</a></li>
+                    <li><a href="{{ url_for('crop_nurse') }}">Crop Nurse</a></li>
+                    <li><a href="{{ url_for('market_connector') }}">Market Connector</a></li>
                 </ul>
             </nav>
         </div>
@@ -79,17 +79,17 @@
             <div class="card">
                 <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">🩺 Soil Doctor</h4>
                 <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">IoT sensor node analytics measuring soil moisture, pH, temperature, and NPK every 15 minutes for precision agricultural optimization.</p>
-                <a href="soil.html" class="btn">Launch Module</a>
+                <a href="{{ url_for('soil_doctor') }}" class="btn">Launch Module</a>
             </div>
             <div class="card">
                 <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">🌿 Crop Nurse</h4>
                 <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">On-device MobileNetV2 CNN that diagnoses crop diseases from photos in under 3 seconds perfectly offline.</p>
-                <a href="crop.html" class="btn">Launch Module</a>
+                <a href="{{ url_for('crop_nurse') }}" class="btn">Launch Module</a>
             </div>
             <div class="card">
                 <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">🤝 Market Connector</h4>
                 <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Pre-harvest listing engine matching freight transport and integrating secure M-Pesa STK push escrow workflows.</p>
-                <a href="market.html" class="btn">Launch Module</a>
+                <a href="{{ url_for('market_connector') }}" class="btn">Launch Module</a>
             </div>
         </div>
     </main>

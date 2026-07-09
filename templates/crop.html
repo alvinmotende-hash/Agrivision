@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Nurse - AgriVision</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Agri<span>Vision</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('soil_doctor') }}">Soil Doctor</a></li>
+                    <li><a href="{{ url_for('crop_nurse') }}" class="active">Crop Nurse</a></li>
+                    <li><a href="{{ url_for('market_connector') }}">Market Connector</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="dashboard-header" style="background: linear-gradient(135deg, #16a085, #2c5e3b);">
+            <h2>🌿 The Crop Nurse Module</h2>
+            <p>On-Device Edge AI powered by an optimized MobileNetV2 CNN framework.</p>
+        </div>
+
+        <div class="row-layout">
+            <div class="card">
+                <h3>Instant Disease Diagnosis</h3>
+                <form id="cropNurseForm" enctype="multipart/form-data">
+                    <div class="upload-zone" onclick="document.getElementById('hiddenFileInput').click();">
+                        <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; color: var(--primary-color);">📸 Select Crop Photograph</p>
+                        <p style="font-size: 0.9rem; color: #7f8c8d;">Click here to select or take photo</p>
+                        <input type="file" id="hiddenFileInput" name="crop_image" accept="image/*" style="display:none;" onchange="document.getElementById('fileNameSpan').innerText = 'Selected file: ' + this.files[0].name;">
+                        <span id="fileNameSpan" style="display:block; margin-top:0.5rem; font-weight:600; color:var(--accent-color);"></span>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn" style="padding: 0.75rem 2rem;">Run Application Inference</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>Diagnostic Report Outputs</h3>
+                <div id="diagnosticResult">
+                    <p style="color: #7f8c8d; font-style: italic; text-align: center; padding-top: 2rem;">Upload an image or tap run inference to analyze crop health data fields via Python.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AgriVision Platform. Semester Project: SDG-Related Problem & Solution.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

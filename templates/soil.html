@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Doctor - AgriVision</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Agri<span>Vision</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('soil_doctor') }}" class="active">Soil Doctor</a></li>
+                    <li><a href="{{ url_for('crop_nurse') }}">Crop Nurse</a></li>
+                    <li><a href="{{ url_for('market_connector') }}">Market Connector</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="dashboard-header" style="background: linear-gradient(135deg, #1e4620, #2c5e3b);">
+            <h2>🩺 The Soil Doctor Module</h2>
+            <p>Real-time IoT sensor network delivering automated precision irrigation and fertilization updates every 15 minutes.</p>
+        </div>
+
+        <div class="row-layout">
+            <div class="card" style="flex: 2; min-width: 320px;">
+                <h3>Live Telemetry Feed (Node #KE-401)</h3>
+                <p style="font-size: 0.85rem; color: #7f8c8d; margin-bottom: 1rem;">{{ telemetry.last_updated }}</p>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Current Value</th>
+                            <th>Optimal Range</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Soil Moisture</strong></td>
+                            <td>{{ telemetry.moisture }}%</td>
+                            <td>40% - 60%</td>
+                            <td>
+                                {% if telemetry.moisture >= 40 and telemetry.moisture <= 60 %}
+                                <span class="status-indicator status-good"></span> Normal
+                                {% else %}
+                                <span class="status-indicator status-warning"></span> Alert
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Soil pH</strong></td>
+                            <td>{{ telemetry.ph }} pH</td>
+                            <td>6.0 - 7.0 pH</td>
+                            <td>
+                                {% if telemetry.ph >= 6.0 and telemetry.ph <= 7.0 %}
+                                <span class="status-indicator status-good"></span> Optimal
+                                {% else %}
+                                <span class="status-indicator status-warning"></span> Alert
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Temperature</strong></td>
+                            <td>{{ telemetry.temperature }}°C</td>
+                            <td>20°C - 28°C</td>
+                            <td>
+                                {% if telemetry.temperature >= 20 and telemetry.temperature <= 28 %}
+                                <span class="status-indicator status-good"></span> Stable
+                                {% else %}
+                                <span class="status-indicator status-warning"></span> Alert
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nitrogen (N)</strong></td>
+                            <td>{{ telemetry.nitrogen }} mg/kg</td>
+                            <td>30 - 50 mg/kg</td>
+                            <td>
+                                {% if telemetry.nitrogen >= 30 and telemetry.nitrogen <= 50 %}
+                                <span class="status-indicator status-good"></span> Optimal
+                                {% else %}
+                                <span class="status-indicator status-warning"></span> Low
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phosphorus (P)</strong></td>
+                            <td>{{ telemetry.phosphorus }} mg/kg</td>
+                            <td>15 - 30 mg/kg</td>
+                            <td>
+                                {% if telemetry.phosphorus >= 15 and telemetry.phosphorus <= 30 %}
+                                <span class="status-indicator status-good"></span> Optimal
+                                {% else %}
+                                <span class="status-indicator status-warning"></span> Low
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Potassium (K)</strong></td>
+                            <td>{{ telemetry.potassium }} mg/kg</td>
+                            <td>150 - 250 mg/kg</td>
+                            <td>
+                                {% if telemetry.potassium >= 150 and telemetry.potassium <= 250 %}
+                                <span class="status-indicator status-good"></span> Optimal
+                                {% else %}
+                                <span class="status-indicator status-warning"></span> Alert
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 1rem; min-width: 280px;">
+                <div class="card">
+                    <h3>Manual Value Override</h3>
+                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 1rem;">Override the automated sensor logs with custom data points:</p>
+                    
+                    <form method="POST" action="{{ url_for('soil_doctor') }}" style="font-size: 0.9rem;">
+                        <div style="margin-bottom: 0.6rem;">
+                            <label style="display:block; font-weight:500; margin-bottom:0.2rem;">Moisture (%)</label>
+                            <input type="number" name="moisture" value="{{ telemetry.moisture|int }}" min="0" max="100" step="1" style="width:100%; padding:0.4rem; border:1px solid #ccc; border-radius:4px;">
+                        </div>
+                        <div style="margin-bottom: 0.6rem;">
+                            <label style="display:block; font-weight:500; margin-bottom:0.2rem;">pH Level</label>
+                            <input type="number" name="ph" value="{{ telemetry.ph }}" min="0" max="14" step="0.1" style="width:100%; padding:0.4rem; border:1px solid #ccc; border-radius:4px;">
+                        </div>
+                        <div style="margin-bottom: 0.6rem;">
+                            <label style="display:block; font-weight:500; margin-bottom:0.2rem;">Temperature (°C)</label>
+                            <input type="number" name="temperature" value="{{ telemetry.temperature }}" step="0.1" style="width:100%; padding:0.4rem; border:1px solid #ccc; border-radius:4px;">
+                        </div>
+                        <div style="margin-bottom: 0.6rem;">
+                            <label style="display:block; font-weight:500; margin-bottom:0.2rem;">Nitrogen (mg/kg)</label>
+                            <input type="number" name="nitrogen" value="{{ telemetry.nitrogen|int }}" step="1" style="width:100%; padding:0.4rem; border:1px solid #ccc; border-radius:4px;">
+                        </div>
+                        <div style="margin-bottom: 0.6rem;">
+                            <label style="display:block; font-weight:500; margin-bottom:0.2rem;">Phosphorus (mg/kg)</label>
+                            <input type="number" name="phosphorus" value="{{ telemetry.phosphorus|int }}" step="1" style="width:100%; padding:0.4rem; border:1px solid #ccc; border-radius:4px;">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display:block; font-weight:500; margin-bottom:0.2rem;">Potassium (mg/kg)</label>
+                            <input type="number" name="potassium" value="{{ telemetry.potassium|int }}" step="1" style="width:100%; padding:0.4rem; border:1px solid #ccc; border-radius:4px;">
+                        </div>
+                        <button type="submit" class="btn btn-accent" style="width:100%; padding:0.6rem;">Update Telemetry Feed</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3>Precision Agriculture Alerts</h3>
+                    {% if not alerts %}
+                    <div style="background-color: #e8f5e9; padding: 1rem; border-left: 4px solid var(--success-color); border-radius: 4px;">
+                        <h4 style="color: #27ae60; margin-bottom: 0.3rem;">✅ All Systems Optimal</h4>
+                        <p style="font-size: 0.9rem;">Sensor readings show well-balanced baseline configurations across variables.</p>
+                    </div>
+                    {% else %}
+                        {% for alert in alerts %}
+                        <div style="background-color: #fffde7; padding: 1rem; border-left: 4px solid var(--warning-color); border-radius: 4px; margin-bottom: 0.8rem;">
+                            <h4 style="color: #bc9b00; margin-bottom: 0.3rem;">⚠️ {{ alert.metric }}: {{ alert.direction }}</h4>
+                            <p style="font-size: 0.85rem; margin-bottom: 0.2rem;"><strong>Cause:</strong> {{ alert.cause }}</p>
+                            <p style="font-size: 0.85rem;"><strong>Remedy:</strong> {{ alert.remedy }}</p>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AgriVision Platform. Semester Project: SDG-Related Problem & Solution.</p>
+    </footer>
+
+</body>
+</html>
